@@ -26,14 +26,20 @@ function Dashboard() {
   });
   const [disabled, setDisabled] = useState(true);
   const [buttonTittle, setButtonTittle] = useState("Submit");
+  const [loading, setLoading] = useState(true);
+  console.log(loading);
 
   function callback() {
-    async function fetchData() {
-      const api = "https://mocki.io/v1/8caaea5a-62c5-4e30-b9d3-0aae11e2a443";
-      const response = await fetch(api);
-      console.log(response);
-    }
-    fetchData();
+    setTimeout(() => {
+      async function fetchData() {
+        const api = "https://mocki.io/v1/8caaea5a-62c5-4e30-b9d3-0aae11e2a443";
+        const response = await fetch(api);
+        const data = await response.json();
+        setTodos(data);
+        setLoading(false);
+      }
+      fetchData();
+    }, 3000);
   }
 
   useEffect(callback, []);
