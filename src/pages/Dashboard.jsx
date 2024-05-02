@@ -1,5 +1,5 @@
 import { CiLogin as Login } from "react-icons/ci";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Select from "react-select";
 import { v4 as uuid } from "uuid";
 
@@ -24,9 +24,19 @@ function Dashboard() {
     priorita: "",
     completato: false
   });
-  const api = "https://mocki.io/v1/8caaea5a-62c5-4e30-b9d3-0aae11e2a443";
   const [disabled, setDisabled] = useState(true);
   const [buttonTittle, setButtonTittle] = useState("Submit");
+
+  function callback() {
+    async function fetchData() {
+      const api = "https://mocki.io/v1/8caaea5a-62c5-4e30-b9d3-0aae11e2a443";
+      const response = await fetch(api);
+      console.log(response);
+    }
+    fetchData();
+  }
+
+  useEffect(callback, []);
 
   const formController = todo => {
     if (todo.titolo !== "" && todo.dataDiScadenza !== "" && todo.priorita !== "") {
