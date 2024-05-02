@@ -28,7 +28,6 @@ function Dashboard() {
   const [disabled, setDisabled] = useState(true);
   const [buttonTittle, setButtonTittle] = useState("Submit");
   const [loading, setLoading] = useState(true);
-  console.log(loading);
 
   function callback() {
     setTimeout(() => {
@@ -154,10 +153,12 @@ function Dashboard() {
       <Card>
         <div className="w-full flex justify-between items-center">
           <div>
-            <h1>Todo Done</h1>
-            <h4>keep it up</h4>
+            <h1 className="text-2xl ">Todo Done</h1>
+            <h4 className="text-gray-400">keep it up</h4>
           </div>
-          <div>{todos.length}</div>
+          <div className="bg-dark-green rounded-full w-14 h-14 flex justify-center items-center text-white">
+            {todos.filter(todo => todo.completato).length + "/" + todos.length}
+          </div>
         </div>
       </Card>
       {/* todo form */}
