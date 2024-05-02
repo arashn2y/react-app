@@ -24,6 +24,7 @@ function Dashboard() {
     priorita: "",
     completato: false
   });
+  console.log(todos);
   const [disabled, setDisabled] = useState(true);
   const [buttonTittle, setButtonTittle] = useState("Submit");
 
