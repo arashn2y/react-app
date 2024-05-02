@@ -8,6 +8,7 @@ import Card from "../components/Card";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import TodoCard from "../components/TodoCard";
+import Loading from "../components/Loading";
 
 const options = [
   { value: "ALTA", label: "Alta" },
@@ -174,7 +175,7 @@ function Dashboard() {
           <Button title={buttonTittle} onClick={onClick} disabled={disabled} />
         </div>
       </div>
-      {todosTitles}
+      {loading ? <Loading /> : todosTitles}
     </>
   );
 }
