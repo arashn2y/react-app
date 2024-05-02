@@ -24,7 +24,7 @@ function Dashboard() {
     priorita: "",
     completato: false
   });
-  console.log(todos);
+  const api = "https://mocki.io/v1/8caaea5a-62c5-4e30-b9d3-0aae11e2a443";
   const [disabled, setDisabled] = useState(true);
   const [buttonTittle, setButtonTittle] = useState("Submit");
 
